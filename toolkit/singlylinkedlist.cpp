@@ -17,10 +17,14 @@
 			head->next = tail;
 			tail->data = data;
 			tail->next = 0;
+			return;
 		}
-		else
-		{
+		
+		
 			node *traverser;
-		}
+			node* trailer;
+
+
+		
 	
 	}
