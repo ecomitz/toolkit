@@ -1,7 +1,8 @@
 #include "singlylinkedlist.h"
 #include <iostream>
 
-	// All scenarios need test cases
+	// All scenarios need test cases. 
+	// Need to find a way to test for memory leaks.
 
 
 
@@ -13,10 +14,23 @@ singlylinkedlist::singlylinkedlist()
 	}
 singlylinkedlist::singlylinkedlist(int datum)
 {
-	node *head = new node;
+	head = new node;
 	head->datum = datum;
 	tail = head;
 	head->next = 0;
+}
+singlylinkedlist::~singlylinkedlist()
+{
+	while (head->next != 0)
+	{
+		node* traverser = head;
+		while (traverser->next != 0)
+		{
+			traverser = traverser->next;
+		}
+		delete traverser;
+	}
+	delete head;
 }
 void singlylinkedlist::traverse()
 {
@@ -64,6 +78,42 @@ void singlylinkedlist::traverse()
 			trailer->next = traverser;
 	
 	}
+	void singlylinkedlist::addByIndex(int datum, int index)
+	{
+
+		node* traverser = head;
+		node* trailer = 0;
+		int i = 0;
+		if (index == 0) // aka it shall be the head
+		{
+			node* newOne = new node;
+			newOne->datum = datum;
+			newOne->next = head;
+			head = newOne;
+			return;
+		}
+		while (i <= index && traverser != 0)
+		{
+
+			if (i == index)
+			{
+			//	std::cout << "Traverser's cur value:" << traverser->datum << std::endl;
+				node* newOne = new node;
+				//traverser = new node;
+				newOne->datum = datum;
+				newOne->next = traverser;
+				trailer->next = newOne;
+			//	traverser->next = newOne;
+			//	std::cout << "Traverser's next:" << traverser->next->datum << std::endl;
+				return;
+			}
+			trailer = traverser;
+			traverser = traverser->next;
+			i++;
+		}
+
+
+	}
 	void singlylinkedlist::removeByIndex(int index)
 	{
 		node *traverser = head;
@@ -77,12 +127,8 @@ void singlylinkedlist::traverse()
 		}
 		int i = 0;
 		while (traverser->next != 0 && i < index)
-		{
-		//	std::cout << "While loop entered" << std::endl;
-		
-			//	std::cout << "Traversal occurred" << std::endl;
-				trailer = traverser;
-			//	std::cout << "Trailer is now: " << trailer->data << std::endl;
+		{	
+				trailer = traverser;	
 				traverser = traverser->next;
 			i++;
 		}
@@ -99,4 +145,31 @@ void singlylinkedlist::traverse()
 			trailer->next = traverser->next;
 		}
 		delete traverser;
+	}
+	void singlylinkedlist::removeAllInstances(int data)
+	{
+		// fill with code
+/*
+		node* traverser = head;
+		node* trailer = 0;
+		if (traverser->datum == data && traverser == head)
+		{
+			traverser = traverser->next;
+			delete head;
+			head = traverser;
+			
+			
+		}
+		while (traverser != 0)
+		{
+			if (traverser->datum == data)
+			{
+				if (trailer != 0)
+				{
+					trailer->next = traverser->next;
+				}
+				delete traverser;
+			}
+		}
+		*/
 	}

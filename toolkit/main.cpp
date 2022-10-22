@@ -31,6 +31,12 @@ int main()
 	cout << "Delete an invalid index:" << endl;
 	tester->removeByIndex(10);
 	tester->traverse();
+	cout << "Adding to index 1 (the second node)" << endl;
+	tester->addByIndex(44, 1);
+	tester->traverse();
+	cout << "Adding to index 0 (the head)" << endl;
+	tester->addByIndex(100, 0);
+	tester->traverse();
 	return 0;
 
 
