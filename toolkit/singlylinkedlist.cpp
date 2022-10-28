@@ -10,6 +10,7 @@ singlylinkedlist::singlylinkedlist()
 {	
 	head = 0;
 	tail = 0;
+	size = 0;
 
 	}
 singlylinkedlist::singlylinkedlist(int datum)
@@ -18,6 +19,49 @@ singlylinkedlist::singlylinkedlist(int datum)
 	head->datum = datum;
 	tail = head;
 	head->next = 0;
+	size = 1;
+}
+singlylinkedlist::singlylinkedlist(node *listToCopy)
+{
+ // Placeholder. NYI.
+	node* traverser = listToCopy;
+	node* traverserForNewList;
+	head = new node; // The first node
+	head->datum = listToCopy->datum;
+	head->next = 0;
+	tail = head; // We'll assume for now that the tail is also the head. 
+	size = 1;
+	traverserForNewList = tail;
+	if (listToCopy->next != 0) //  The second node, if there is one.
+	{
+		node* newOne = new node;
+		newOne->datum = listToCopy->next->datum;
+		newOne->next = 0;
+		head->next = newOne;
+		traverserForNewList = newOne;
+		size++;
+		traverser = listToCopy->next->next;
+		if (listToCopy->next->next == 0) // AKA it's a 2 node list and the second one is thus the tail.
+		{
+			tail = newOne;
+			tail->datum = listToCopy->next->datum;
+			tail->next = 0;
+			
+		}
+	}
+	while (traverser != 0) // The rest of the nodes for a list over 2 nodes.
+	{
+		node* newOne = new node;
+		newOne->datum = traverser->datum;
+		newOne->next = 0;
+		traverserForNewList->next = newOne;
+		traverserForNewList = newOne;
+		traverser = traverser->next;
+		size++;
+	
+	}
+	tail = traverserForNewList;
+
 }
 singlylinkedlist::~singlylinkedlist()
 {
@@ -29,6 +73,7 @@ singlylinkedlist::~singlylinkedlist()
 			traverser = traverser->next;
 		}
 		delete traverser;
+		size--;
 	}
 	delete head;
 }
@@ -37,10 +82,36 @@ void singlylinkedlist::traverse()
 	node *traverser = head;
 	while (traverser != 0)
 	{
-		std::cout << traverser->datum << std::endl;
+		if (traverser->next != 0)
+		{
+			std::cout << traverser->datum << ", ";
+		}
+		else
+		{
+			std::cout << traverser->datum;
+		}
 		traverser = traverser->next;
+		
 	}
+	std::cout << std::endl;
 	}
+
+void singlylinkedlist::reverse()
+{
+	// TODO
+}
+
+singlylinkedlist singlylinkedlist::reversedCopy(singlylinkedlist listToCopy)
+{
+	return 0; // Placeholder
+}
+
+unsigned int singlylinkedlist::getSize()
+{
+	return this->size;
+}
+
+
 
 	void singlylinkedlist::add(int datum)
 	{
@@ -52,6 +123,7 @@ void singlylinkedlist::traverse()
 			tail = head;
 			head->next = 0;
 			tail->next = 0;
+			size = 1;
 			return;
 		}
 		// Scenario: Only 1 node exists
@@ -61,6 +133,7 @@ void singlylinkedlist::traverse()
 			head->next = tail;
 			tail->datum = datum;
 			tail->next = 0;
+			size = 2;
 			return;
 		}
 		
@@ -76,6 +149,8 @@ void singlylinkedlist::traverse()
 			traverser->datum = datum;
 			traverser->next = 0;
 			trailer->next = traverser;
+			tail = traverser;
+			size++;
 	
 	}
 	void singlylinkedlist::addByIndex(int datum, int index)
@@ -90,6 +165,17 @@ void singlylinkedlist::traverse()
 			newOne->datum = datum;
 			newOne->next = head;
 			head = newOne;
+			size++;
+			return;
+		}
+		else if (index == size) // aka it shall be the new tail
+		{
+			node* newOne = new node;
+			newOne->datum = datum;
+			newOne->next = 0;
+			tail->next = newOne;
+			tail = newOne;
+			size++;
 			return;
 		}
 		while (i <= index && traverser != 0)
@@ -97,14 +183,12 @@ void singlylinkedlist::traverse()
 
 			if (i == index)
 			{
-			//	std::cout << "Traverser's cur value:" << traverser->datum << std::endl;
 				node* newOne = new node;
-				//traverser = new node;
 				newOne->datum = datum;
 				newOne->next = traverser;
 				trailer->next = newOne;
-			//	traverser->next = newOne;
-			//	std::cout << "Traverser's next:" << traverser->next->datum << std::endl;
+				size++;
+				
 				return;
 			}
 			trailer = traverser;
@@ -123,6 +207,7 @@ void singlylinkedlist::traverse()
 		{
 			head = head->next;
 			delete traverser;
+			size--;
 			return;
 		}
 		int i = 0;
@@ -136,15 +221,17 @@ void singlylinkedlist::traverse()
 		{
 			return; // no deletion possible.
 		}
-		if (traverser->next == 0)
+		if (traverser->next == 0) // The "Remove the Tail" case. 
 		{
 			trailer->next = 0;
+			tail = trailer;
 		}
 		else
 		{
 			trailer->next = traverser->next;
 		}
 		delete traverser;
+		size--;
 	}
 	void singlylinkedlist::removeAllInstances(int data)
 	{
