@@ -101,6 +101,11 @@ void singlylinkedlist::reverse()
 	// TODO
 }
 
+singlylinkedlist singlylinkedlist::reverse(singlylinkedlist listToReverse)
+{
+	return 0;
+}
+
 singlylinkedlist singlylinkedlist::reversedCopy(singlylinkedlist listToCopy)
 {
 	return 0; // Placeholder
@@ -109,6 +114,48 @@ singlylinkedlist singlylinkedlist::reversedCopy(singlylinkedlist listToCopy)
 unsigned int singlylinkedlist::getSize()
 {
 	return this->size;
+}
+
+int singlylinkedlist::find(int datum)
+{
+	 // placeholder
+	unsigned int i = 0;
+
+	node* traverser = head;
+
+	while (traverser != 0)
+	{
+		if (traverser->datum == datum)
+		{
+			return i;
+		}
+		i++;
+		traverser = traverser->next;
+
+	}
+
+
+
+	return -1;
+}
+
+void singlylinkedlist::traverseWithMemLocs()
+{
+	node* traverser = head;
+	while (traverser != 0)
+	{
+		if (traverser->next != 0)
+		{
+			std::cout << std::hex << traverser << ", ";
+		}
+		else
+		{
+			std::cout << std::hex << traverser;
+		}
+		traverser = traverser->next;
+
+	}
+	std::cout << std::endl;
 }
 
 

@@ -56,13 +56,26 @@ int main()
 	tester->removeByIndex(10);
 	cout << "Size expected: 6. Actual size: " << tester->getSize() << endl;
 	tester->traverse();
-	cout << "Copy Test: The second list shall be a copy of the first list." << endl;
+	cout << "Copy test: The second list shall be a copy of the first list." << endl;
 	cout << "First list: (Also expected in second list): " << endl;
 	tester->traverse();
 	singlylinkedlist* tester2 = new singlylinkedlist(tester->head);
 	cout << "Second list actual values: " << endl;
 	tester2->traverse();
-	cout << "Expected size of second list: 6. Actual size: " << tester2->getSize();
+	cout << "Expected size of second list: 6. Actual size: " << tester2->getSize() << endl;
+	cout << "Find tests: " << endl;
+	cout << "Searching for 5. Expected index: 0 (head). Actual index: " << tester2->find(5) << endl;
+	cout << "Searching for 1000. Expected index: 5 (tail). Actual index: " << tester2->find(1000) << endl;
+	cout << "Searching for 20. Expected index: 3. Actual index: " << tester2->find(20) << endl;
+	cout << "Searching for 909. Expected index: -1. Actual index: " << tester2->find(909) << endl;
+	cout << "Traverse with memory locations test: " << endl;
+	cout << "List 1: ";
+	tester->traverseWithMemLocs();
+	cout << "List 2: ";
+	tester2->traverseWithMemLocs();
+
+	
+
 	return 0;
 
 

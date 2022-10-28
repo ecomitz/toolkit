@@ -38,9 +38,16 @@ public:
 	void traverse();
 	// Turns the current list into its own reversed form. NYI.
 	void reverse();
+	// Reverses the input list and stores the resultant list into the returned variable. WARNING: This will delete the input list. May be faster than void reverse. NYI.
+	singlylinkedlist reverse(singlylinkedlist listToReverse);
 	// Returns a reversed copy of the inputted list. NYI.
 	singlylinkedlist reversedCopy(singlylinkedlist listToCopy); 
 	unsigned int getSize();
+	// Performs a linear search of the data to find the input datum and returns the index it is found at. Returns -1 if it cannot be found. Useful for unsorted lists. NYI.
+	int find(int datum);
+	// Traverse with memory locations! Might be useful, perhaps? Just prints the memory locations.
+	void traverseWithMemLocs();
+
 
 
 
