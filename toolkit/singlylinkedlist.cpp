@@ -67,15 +67,12 @@ singlylinkedlist::~singlylinkedlist()
 {
 	while (head->next != 0)
 	{
-		node* traverser = head;
-		while (traverser->next != 0)
-		{
-			traverser = traverser->next;
-		}
-		delete traverser;
+		node* traverser = head->next;
+		delete head;
+		head = traverser;
 		size--;
 	}
-	delete head;
+	
 }
 void singlylinkedlist::traverse()
 {
@@ -155,7 +152,7 @@ void singlylinkedlist::traverseWithMemLocs()
 		traverser = traverser->next;
 
 	}
-	std::cout << std::endl;
+	std::cout << std::dec << std::endl; // All numbers printed in the program will be in hex unless I change it back, it seems
 }
 
 
@@ -185,19 +182,12 @@ void singlylinkedlist::traverseWithMemLocs()
 		}
 		
 		 // Scenario: There is already at least 2 nodes present. 
-			node *traverser = head;
-			node *trailer = 0;
-			while (traverser != 0)
-			{
-				trailer = traverser;
-				traverser = traverser->next;			
-			}
-			traverser = new node;
-			traverser->datum = datum;
-			traverser->next = 0;
-			trailer->next = traverser;
-			tail = traverser;
-			size++;
+		node* newOne = new node;
+		newOne->datum = datum;
+		tail->next = newOne;
+		tail = newOne;
+		tail->next = 0;
+		size++;
 	
 	}
 	void singlylinkedlist::addByIndex(int datum, int index)
@@ -283,17 +273,19 @@ void singlylinkedlist::traverseWithMemLocs()
 	void singlylinkedlist::removeAllInstances(int data)
 	{
 		// fill with code
-/*
+
 		node* traverser = head;
 		node* trailer = 0;
-		if (traverser->datum == data && traverser == head)
+		if (traverser->datum == data && traverser == head) // i.e if head is a case
 		{
 			traverser = traverser->next;
 			delete head;
 			head = traverser;
+			size--;
 			
 			
 		}
+		/*
 		while (traverser != 0)
 		{
 			if (traverser->datum == data)
@@ -305,5 +297,6 @@ void singlylinkedlist::traverseWithMemLocs()
 				delete traverser;
 			}
 		}
-		*/
+		
+	*/
 	}

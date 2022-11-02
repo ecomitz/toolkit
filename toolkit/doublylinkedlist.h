@@ -1,6 +1,6 @@
 #ifndef EC_DOUBLYLINKEDLIST
 #define EC_DOUBLYLINKEDLIST
-// This entire class: NYI
+// Nothing in this class is implemented yet.
 class doublylinkedlist
 {
 	struct node
@@ -9,7 +9,8 @@ class doublylinkedlist
 		node* prev;
 		node* next;
 	};
-
+private:
+	
 
 public:
 
@@ -26,6 +27,7 @@ public:
 	void traverse();
 	void reverse();
 	doublylinkedlist reversedCopy(doublylinkedlist listToCopy);
+	
 	
 
 };

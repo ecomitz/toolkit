@@ -1,5 +1,6 @@
 #ifndef EC_MATH
 #define EC_MATH
+// Nothing in this class is implemented yet.
 class ec_math
 {
 	unsigned int primes[20] = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 67, 71, 73};

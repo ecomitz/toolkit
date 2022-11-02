@@ -146,6 +146,7 @@
     <ClInclude Include="lifo_stack.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="singlylinkedlist.h" />
+    <ClInclude Include="sortingalgorithms.h" />
     <ClInclude Include="tree.h" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClCompile Include="lifo_stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="singlylinkedlist.cpp" />
+    <ClCompile Include="sortingalgorithms.cpp" />
     <ClCompile Include="tree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

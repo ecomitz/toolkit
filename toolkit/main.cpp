@@ -73,7 +73,27 @@ int main()
 	tester->traverseWithMemLocs();
 	cout << "List 2: ";
 	tester2->traverseWithMemLocs();
+	cout << "Calling deconstructor on second list." << endl;
+	delete tester2;
+	tester->traverse();
+	singlylinkedlist *tester3 = new singlylinkedlist();
+	unsigned int lim = 2000000;
+	cout << "Absolutely huge linked list test: Every number from 0 to " << lim << "." << endl; // Used this one to find out that my add algorithm was improperly made!
+	
+	for (int i = 0; i < lim; i++)
+	{
+		tester3->add(i);
+	}
+	cout << "Done!" << endl;
+	delete tester3;
+	while (true) // Used to keep the program running for mem testing.
+	{
 
+
+
+	}
+	
+	//cout << sizeof(*tester3) << endl;
 	
 
 	return 0;
