@@ -21,25 +21,25 @@
     <ClInclude Include="ec_math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fifo_queue.h">
+    <ClInclude Include="queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hashmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="main.h">
+    <ClInclude Include="hashtable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="singlylinkedlist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lifo_stack.h">
+    <ClInclude Include="stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tree.h">
+    <ClInclude Include="binarysearchtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sortingalgorithms.h">
+    <ClInclude Include="ec_geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ec_stringfuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,13 +50,13 @@
     <ClCompile Include="ec_math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fifo_queue.cpp">
+    <ClCompile Include="queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hashmap.cpp">
+    <ClCompile Include="hashtable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lifo_stack.cpp">
+    <ClCompile Include="stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -65,10 +65,13 @@
     <ClCompile Include="singlylinkedlist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tree.cpp">
+    <ClCompile Include="binarysearchtree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sortingalgorithms.cpp">
+    <ClCompile Include="ec_geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ec_stringfuncs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -140,25 +140,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="doublylinkedlist.h" />
+    <ClInclude Include="ec_geometry.h" />
     <ClInclude Include="ec_math.h" />
-    <ClInclude Include="fifo_queue.h" />
-    <ClInclude Include="hashmap.h" />
-    <ClInclude Include="lifo_stack.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="ec_stringfuncs.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="hashtable.h" />
+    <ClInclude Include="stack.h" />
     <ClInclude Include="singlylinkedlist.h" />
-    <ClInclude Include="sortingalgorithms.h" />
-    <ClInclude Include="tree.h" />
+    <ClInclude Include="binarysearchtree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="doublylinkedlist.cpp" />
+    <ClCompile Include="ec_geometry.cpp" />
     <ClCompile Include="ec_math.cpp" />
-    <ClCompile Include="fifo_queue.cpp" />
-    <ClCompile Include="hashmap.cpp" />
-    <ClCompile Include="lifo_stack.cpp" />
+    <ClCompile Include="ec_stringfuncs.cpp" />
+    <ClCompile Include="queue.cpp" />
+    <ClCompile Include="hashtable.cpp" />
+    <ClCompile Include="stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="singlylinkedlist.cpp" />
-    <ClCompile Include="sortingalgorithms.cpp" />
-    <ClCompile Include="tree.cpp" />
+    <ClCompile Include="binarysearchtree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

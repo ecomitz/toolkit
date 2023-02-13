@@ -1,32 +1,34 @@
 #include "singlylinkedlist.h"
-#include <iostream>
+
 
 	// All scenarios need test cases. 
 	// Need to find a way to test for memory leaks.
 
 
-
-singlylinkedlist::singlylinkedlist()
+template <class T>
+singlylinkedlist<T>::singlylinkedlist()
 {	
 	head = 0;
 	tail = 0;
 	size = 0;
 
 	}
-singlylinkedlist::singlylinkedlist(int datum)
+template <class T>
+singlylinkedlist<T>::singlylinkedlist(T datum)
 {
-	head = new node;
+	head = new node<T>;
 	head->datum = datum;
 	tail = head;
 	head->next = 0;
 	size = 1;
 }
-singlylinkedlist::singlylinkedlist(node *listToCopy)
+template <class T>
+singlylinkedlist<T>::singlylinkedlist(node<T> *listToCopy)
 {
  // Placeholder. NYI.
-	node* traverser = listToCopy;
-	node* traverserForNewList;
-	head = new node; // The first node
+	node<T>* traverser = listToCopy;
+	node<T>* traverserForNewList;
+	head = new node<T>; // The first node
 	head->datum = listToCopy->datum;
 	head->next = 0;
 	tail = head; // We'll assume for now that the tail is also the head. 
@@ -34,7 +36,7 @@ singlylinkedlist::singlylinkedlist(node *listToCopy)
 	traverserForNewList = tail;
 	if (listToCopy->next != 0) //  The second node, if there is one.
 	{
-		node* newOne = new node;
+		node<T>* newOne = new node<T>;
 		newOne->datum = listToCopy->next->datum;
 		newOne->next = 0;
 		head->next = newOne;
@@ -51,7 +53,7 @@ singlylinkedlist::singlylinkedlist(node *listToCopy)
 	}
 	while (traverser != 0) // The rest of the nodes for a list over 2 nodes.
 	{
-		node* newOne = new node;
+		node<T>* newOne = new node<T>;
 		newOne->datum = traverser->datum;
 		newOne->next = 0;
 		traverserForNewList->next = newOne;
@@ -63,20 +65,29 @@ singlylinkedlist::singlylinkedlist(node *listToCopy)
 	tail = traverserForNewList;
 
 }
-singlylinkedlist::~singlylinkedlist()
+template <class T>
+void singlylinkedlist<T>::removeHead()
 {
-	while (head->next != 0)
+	if (head != 0)
 	{
-		node* traverser = head->next;
-		delete head;
-		head = traverser;
+		node<T>* newHead = head->next;
 		size--;
+		delete head;
+		head = newHead;
 	}
-	
 }
-void singlylinkedlist::traverse()
+template <class T>
+singlylinkedlist<T>::~singlylinkedlist()
 {
-	node *traverser = head;
+	while (head != 0)
+	{
+		this->removeHead();
+	}
+}
+template <class T>
+void singlylinkedlist<T>::traverse()
+{
+	node<T> *traverser = head;
 	while (traverser != 0)
 	{
 		if (traverser->next != 0)
@@ -91,41 +102,108 @@ void singlylinkedlist::traverse()
 		
 	}
 	std::cout << std::endl;
+}
+template <class T>
+T singlylinkedlist<T>::getAtIndex(unsigned int index)
+{
+	if (index >= size)
+	{
+		return -1; // Placeholder
 	}
-
-void singlylinkedlist::reverse()
-{
-	// TODO
-}
-
-singlylinkedlist singlylinkedlist::reverse(singlylinkedlist listToReverse)
-{
-	return 0;
-}
-
-singlylinkedlist singlylinkedlist::reversedCopy(singlylinkedlist listToCopy)
-{
-	return 0; // Placeholder
-}
-
-unsigned int singlylinkedlist::getSize()
-{
-	return this->size;
-}
-
-int singlylinkedlist::find(int datum)
-{
-	 // placeholder
-	unsigned int i = 0;
-
-	node* traverser = head;
+	int i = 0; 
+	node<T>* traverser = head;
 
 	while (traverser != 0)
 	{
+		if (i == index)
+		{
+			return traverser->datum;
+		}
+		traverser = traverser->next;
+
+	}
+	return head->datum; // Default case: 1 node, thus it is the head.
+}
+template <class T>
+void singlylinkedlist<T>::reverse()
+{
+	
+	singlylinkedlist<T>* reversedForm = new singlylinkedlist();
+	
+	
+	for (int i = 0; i < size; i++)
+	{
+		node<T>* traverser = head;
+		node<T>* trailer = head; // While it may seem intuitive here to put it as null, if it's a single node list then later we'll be dereferencing a nullptr. 
+		while (traverser->next != 0)
+		{
+			
+			trailer = traverser;
+			traverser = traverser->next; // get to the tail
+			
+		}
+		
+		reversedForm->add(traverser->datum);
+		trailer->next = 0;
+		delete traverser;
+	}
+
+	head = reversedForm->head;
+}
+template <class T>
+singlylinkedlist<T>* singlylinkedlist<T>::reverse(singlylinkedlist<T> listToReverse)
+{
+ // NOT YET FUNCTIONAL 
+	singlylinkedlist<T>* reversedFormPointer = new singlylinkedlist();
+
+	for (int i = 0; i < listToReverse.getSize(); i++)
+	{
+		node<T>* traverser = listToReverse.head;
+		node<T>* trailer = listToReverse.head;
+		while (traverser->next != 0)
+		{
+			trailer = traverser;
+			traverser = traverser->next;
+		}
+		reversedFormPointer->add(traverser->datum);
+		trailer->next = 0;
+		delete traverser;
+	}
+	
+	return reversedFormPointer;
+
+}
+template <class T>
+singlylinkedlist<T> singlylinkedlist<T>::reversedCopy(singlylinkedlist<T> listToCopy)
+{
+
+	return 0; // Placeholder
+}
+template <class T>
+unsigned int singlylinkedlist<T>::getSize()
+{
+	return this->size;
+}
+template <class T>
+bool singlylinkedlist<T>::find(T datum, unsigned int &index)
+{
+	 
+	unsigned int i = 0;
+
+	node<T>* traverser = head;
+	
+
+	while (traverser != 0)
+	{
+
 		if (traverser->datum == datum)
 		{
-			return i;
+
+			index = i;
+			return true;
+			
 		}
+
 		i++;
 		traverser = traverser->next;
 
@@ -133,12 +211,12 @@ int singlylinkedlist::find(int datum)
 
 
 
-	return -1;
+	return false;
 }
-
-void singlylinkedlist::traverseWithMemLocs()
+template <class T>
+void singlylinkedlist<T>::traverseWithMemLocs()
 {
-	node* traverser = head;
+	node<T>* traverser = head;
 	while (traverser != 0)
 	{
 		if (traverser->next != 0)
@@ -156,13 +234,13 @@ void singlylinkedlist::traverseWithMemLocs()
 }
 
 
-
-	void singlylinkedlist::add(int datum)
+	template <class T>
+	void singlylinkedlist<T>::add(T datum)
 	{
 		// Scenario: No nodes exist yet
 		if (head == 0)
 		{
-			head = new node;
+			head = new node<T>;
 			head->datum = datum;
 			tail = head;
 			head->next = 0;
@@ -173,7 +251,7 @@ void singlylinkedlist::traverseWithMemLocs()
 		// Scenario: Only 1 node exists
 		else if (tail == head)
 		{
-			tail = new node;
+			tail = new node<T>;
 			head->next = tail;
 			tail->datum = datum;
 			tail->next = 0;
@@ -182,7 +260,7 @@ void singlylinkedlist::traverseWithMemLocs()
 		}
 		
 		 // Scenario: There is already at least 2 nodes present. 
-		node* newOne = new node;
+		node<T>* newOne = new node<T>;
 		newOne->datum = datum;
 		tail->next = newOne;
 		tail = newOne;
@@ -190,15 +268,16 @@ void singlylinkedlist::traverseWithMemLocs()
 		size++;
 	
 	}
-	void singlylinkedlist::addByIndex(int datum, int index)
+	template <class T>
+	void singlylinkedlist<T>::addByIndex(T datum, unsigned int index)
 	{
 
-		node* traverser = head;
-		node* trailer = 0;
+		node<T>* traverser = head;
+		node<T>* trailer = 0;
 		int i = 0;
 		if (index == 0) // aka it shall be the head
 		{
-			node* newOne = new node;
+			node<T>* newOne = new node<T>;
 			newOne->datum = datum;
 			newOne->next = head;
 			head = newOne;
@@ -207,7 +286,7 @@ void singlylinkedlist::traverseWithMemLocs()
 		}
 		else if (index == size) // aka it shall be the new tail
 		{
-			node* newOne = new node;
+			node<T>* newOne = new node<T>;
 			newOne->datum = datum;
 			newOne->next = 0;
 			tail->next = newOne;
@@ -220,7 +299,7 @@ void singlylinkedlist::traverseWithMemLocs()
 
 			if (i == index)
 			{
-				node* newOne = new node;
+				node<T>* newOne = new node<T>;
 				newOne->datum = datum;
 				newOne->next = traverser;
 				trailer->next = newOne;
@@ -235,10 +314,11 @@ void singlylinkedlist::traverseWithMemLocs()
 
 
 	}
-	void singlylinkedlist::removeByIndex(int index)
+	template <class T>
+	void singlylinkedlist<T>::removeByIndex(unsigned int index)
 	{
-		node *traverser = head;
-		node *trailer = 0;
+		node<T> *traverser = head;
+		node<T> *trailer = 0;
 
 		if (index == 0)
 		{
@@ -270,12 +350,13 @@ void singlylinkedlist::traverseWithMemLocs()
 		delete traverser;
 		size--;
 	}
-	void singlylinkedlist::removeAllInstances(int data)
+	template <class T>
+	void singlylinkedlist<T>::removeAllInstances(T data)
 	{
 		// fill with code
 
-		node* traverser = head;
-		node* trailer = 0;
+		node<T>* traverser = head;
+		node<T>* trailer = 0;
 		if (traverser->datum == data && traverser == head) // i.e if head is a case
 		{
 			traverser = traverser->next;

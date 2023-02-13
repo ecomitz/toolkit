@@ -1,11 +1,14 @@
 // The test chamber for all of this code!
 #include <iostream>
 #include "singlylinkedlist.h"
+#include "singlylinkedlist.cpp"
+#include "doublylinkedlist.h"
+#include "doublylinkedlist.cpp"
 using namespace std;
 
 int main()
 {
-	singlylinkedlist* tester = new singlylinkedlist();
+	singlylinkedlist<int>* tester = new singlylinkedlist<int>();
 	cout << "Single node test:" << endl;
 	tester->add(5);
 	tester->traverse();
@@ -59,15 +62,53 @@ int main()
 	cout << "Copy test: The second list shall be a copy of the first list." << endl;
 	cout << "First list: (Also expected in second list): " << endl;
 	tester->traverse();
-	singlylinkedlist* tester2 = new singlylinkedlist(tester->head);
+	singlylinkedlist<int>* tester2 = new singlylinkedlist<int>(tester->head);
 	cout << "Second list actual values: " << endl;
 	tester2->traverse();
 	cout << "Expected size of second list: 6. Actual size: " << tester2->getSize() << endl;
 	cout << "Find tests: " << endl;
-	cout << "Searching for 5. Expected index: 0 (head). Actual index: " << tester2->find(5) << endl;
-	cout << "Searching for 1000. Expected index: 5 (tail). Actual index: " << tester2->find(1000) << endl;
-	cout << "Searching for 20. Expected index: 3. Actual index: " << tester2->find(20) << endl;
-	cout << "Searching for 909. Expected index: -1. Actual index: " << tester2->find(909) << endl;
+	bool findTester = false; // initialized for compilation
+	unsigned int spot = 500505050; // initalized for test purposes; no actual find should return this in these tests.
+	cout << "Searching for 5. Expected index: 0 (head). Actual index: ";
+	findTester = tester2->find(5, spot);
+	if (findTester)
+	{
+		cout << spot << endl;
+	}
+	else
+	{
+		cout << "Not found." << endl;
+	}
+	cout << "Searching for 1000. Expected index: 5 (tail). Actual index: ";
+	findTester = tester2->find(1000, spot);
+	if (findTester)
+	{
+		cout << spot << endl;
+	}
+	else
+	{
+		cout << "Not found." << endl;
+	}
+	cout << "Searching for 20. Expected index: 3. Actual index: ";
+	findTester = tester2->find(20, spot);
+	if (findTester)
+	{
+		cout << spot << endl;
+	}
+	else
+	{
+		cout << "Not found." << endl;
+	}
+	cout << "Searching for 909. Expected index: Not found. Actual index: ";
+	findTester = tester2->find(findTester, spot);
+	if (findTester)
+	{
+		cout << spot << endl;
+	}
+	else
+	{
+		cout << "Not found." << endl;
+	}
 	cout << "Traverse with memory locations test: " << endl;
 	cout << "List 1: ";
 	tester->traverseWithMemLocs();
@@ -75,25 +116,45 @@ int main()
 	tester2->traverseWithMemLocs();
 	cout << "Calling deconstructor on second list." << endl;
 	delete tester2;
-	tester->traverse();
-	singlylinkedlist *tester3 = new singlylinkedlist();
+	singlylinkedlist<int> *tester3 = new singlylinkedlist<int>();
 	unsigned int lim = 2000000;
 	cout << "Absolutely huge linked list test: Every number from 0 to " << lim << "." << endl; // Used this one to find out that my add algorithm was improperly made!
 	
-	for (int i = 0; i < lim; i++)
+	for (unsigned int i = 0; i < lim; i++)
 	{
 		tester3->add(i);
 	}
 	cout << "Done!" << endl;
-	delete tester3;
-	while (true) // Used to keep the program running for mem testing.
+	bool unPause = false;
+	cout << "Press 1 to unpause the debugger." << endl;
+	while (unPause == 0)
 	{
-
+		cin >> unPause;
 
 
 	}
+	delete tester3;
+	cout << "Reversal tests: " << endl;
+	cout << "List 1 original: " << endl;
+	tester->traverse();
+	cout << "Now reversing:" << endl;
+	tester->reverse();
+	cout << "Expected: 1000, 25, 20, 10, 44, 5. Actual: ";
+	tester->traverse();
+	cout << "Expected size: 6. Actual size: " << tester->getSize() << endl;
+	cout << "Now rereversing (i.e, running reverse on it again): " << endl;
+	cout << "Expected: 5, 44, 10, 20, 25, 1000. Actual: " << endl;
+	tester->reverse();
+	tester->traverse();
+	cout << "Reversed copy of a singly linked list test by different variable: Input: tester. Output: reversedTester. : " << endl;
+	singlylinkedlist<int> *reversedTester = new singlylinkedlist<int>();
+	cout << "Expected: 1000, 25, 20, 10, 44, 5. Actual: " << endl;
+	//reversedTester->reverse(*tester); // NOT YET FUNCTIONAL. BREAKS PROGRAM.
+	//reversedTester->traverse();
 	
-	//cout << sizeof(*tester3) << endl;
+	cout << "Doubly linked lists tests: " << endl;
+	doublylinkedlist<int> *tester4 = new doublylinkedlist<int>();
+	
 	
 
 	return 0;
