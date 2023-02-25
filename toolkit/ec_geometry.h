@@ -1,11 +1,8 @@
 #ifndef EC_GEOMETRY
 #define EC_GEOMETRY
 #include "ec_math.h"
-class ec_geometry : private ec_math
+struct ec_geometry : private ec_math
 {
-private:
-
-public:
 	//----------------------------------------------------------------------------------------------
 	// Rectangle formulas
 	

@@ -1,12 +1,104 @@
-// The test chamber for all of this code!
+/* This program serves as a test chamber for various functions, data structures and code sections that may prove useful in any given situation
+* Author: Eric Comitz
+* In this section (Main.cpp) test cases are written and executed
+*
+*/
+//----------------------------------------------------------------------------------------------
+// Include and namespace usage section
 #include <iostream>
 #include "singlylinkedlist.h"
 #include "singlylinkedlist.cpp"
 #include "doublylinkedlist.h"
 #include "doublylinkedlist.cpp"
-using namespace std;
+#include "ec_stringfuncs.h"
+#include "ec_geometry.h"
 
+
+
+using namespace std;
+//----------------------------------------------------------------------------------------------
+// Test functions for main section declarations
+void stringTests();
+void singlylinkedlistTests();
+void mathTests();
+//----------------------------------------------------------------------------------------------
+// Main section
 int main()
+{
+	char input = 0;
+	while (input != '0')
+	{
+		cout << "Select a test to run: " << endl;
+		cout << "0: End testing:" << endl;
+		cout << "1: String function tests:" << endl;
+		cout << "2: Mathematical functions tests:" << endl;
+		cout << "3: Singly linked list tests:" << endl;
+		cin >> input;
+		switch (input)
+		{
+		case '0':
+			return 0;
+		case '1':
+			stringTests();
+			break;
+		case '2': 
+			mathTests();
+			break;
+		case '3':
+			singlylinkedlistTests();
+			break;
+		default:
+			cout << "Invalid option" << endl;
+		}
+	}
+	
+	
+	
+	return 0;
+
+}
+//----------------------------------------------------------------------------------------------
+// Test function definitions
+void stringTests()
+{
+	cout << "String Tests: \n---------------------------------------------------------------------------------------------- " << endl;
+	string noWords = "";
+	string noWordsButOneWhiteSpace = " ";
+	string oneWord = "KenOfTheRoad";
+	string twoWords = "KenOf TheRoad";
+	string threeWords = "Ken Of TheRoad";
+	string fourWords = "Ken Of The Road";
+	string oneWordPrecedingAndLeadingWhiteSpace = " KenOfTheRoad ";
+	string twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace = " KenOf TheRoad ";
+	cout << "charCount tests: " << endl;
+	cout << "String: " << noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::charCount(noWords) << endl;
+	cout << "String: " << oneWord << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(oneWord) << endl;
+	cout << "String: " << twoWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(twoWords) << endl;
+	cout << "String: " << threeWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(threeWords) << endl;
+	cout << "String: " << fourWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(fourWords) << endl;
+	cout << "String: " << oneWordPrecedingAndLeadingWhiteSpace << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(oneWordPrecedingAndLeadingWhiteSpace) << endl;
+	cout << "String: " << twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace) << endl;
+	cout << "String (one white space): " << noWordsButOneWhiteSpace << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::charCount(noWordsButOneWhiteSpace) << endl;
+
+	cout << "wordCount tests: " << endl;
+	cout << "String: " << noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(noWords) << endl;
+	cout << "String: " << oneWord << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::wordCount(oneWord) << endl;
+	cout << "String: " << twoWords << " | Expected: " << 2 << " Actual: " << ec_stringfuncs::wordCount(twoWords) << endl;
+	cout << "String: " << threeWords << " | Expected: " << 3 << " Actual: " << ec_stringfuncs::wordCount(threeWords) << endl;
+	cout << "String: " << fourWords << " | Expected: " << 4 << " Actual: " << ec_stringfuncs::wordCount(fourWords) << endl;
+	cout << "String: " << oneWordPrecedingAndLeadingWhiteSpace << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::wordCount(oneWordPrecedingAndLeadingWhiteSpace) << endl;
+	cout << "String: " << twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace << " | Expected: " << 2 << " Actual: " << ec_stringfuncs::wordCount(twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace) << endl;
+	cout << "String (one white space): " << noWordsButOneWhiteSpace << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(noWordsButOneWhiteSpace) << endl;
+	cout << "\n---------------------------------------------------------------------------------------------- " << endl;
+
+}
+
+
+void mathTests()
+{
+
+}
+void singlylinkedlistTests()
 {
 	singlylinkedlist<int>* tester = new singlylinkedlist<int>();
 	cout << "Single node test:" << endl;
@@ -50,7 +142,7 @@ int main()
 	cout << "Size expected: 7. Actual size: " << tester->getSize() << endl;
 	tester->traverse();
 	cout << "Delete the tail:" << endl;
-	cout << "Tail before: " << tester->tail->datum << endl;	
+	cout << "Tail before: " << tester->tail->datum << endl;
 	tester->removeByIndex(5);
 	cout << "Tail after: " << tester->tail->datum << endl;
 	cout << "Size expected: 6. Actual size: " << tester->getSize() << endl;
@@ -116,10 +208,10 @@ int main()
 	tester2->traverseWithMemLocs();
 	cout << "Calling deconstructor on second list." << endl;
 	delete tester2;
-	singlylinkedlist<int> *tester3 = new singlylinkedlist<int>();
+	singlylinkedlist<int>* tester3 = new singlylinkedlist<int>();
 	unsigned int lim = 2000000;
 	cout << "Absolutely huge linked list test: Every number from 0 to " << lim << "." << endl; // Used this one to find out that my add algorithm was improperly made!
-	
+
 	for (unsigned int i = 0; i < lim; i++)
 	{
 		tester3->add(i);
@@ -147,22 +239,12 @@ int main()
 	tester->reverse();
 	tester->traverse();
 	cout << "Reversed copy of a singly linked list test by different variable: Input: tester. Output: reversedTester. : " << endl;
-	singlylinkedlist<int> *reversedTester = new singlylinkedlist<int>();
+	singlylinkedlist<int>* reversedTester = new singlylinkedlist<int>();
 	cout << "Expected: 1000, 25, 20, 10, 44, 5. Actual: " << endl;
 	//reversedTester->reverse(*tester); // NOT YET FUNCTIONAL. BREAKS PROGRAM.
 	//reversedTester->traverse();
-	
-	cout << "Doubly linked lists tests: " << endl;
-	doublylinkedlist<int> *tester4 = new doublylinkedlist<int>();
-	
-	
-
-	return 0;
 
 
 
-	
 
 }
-
-

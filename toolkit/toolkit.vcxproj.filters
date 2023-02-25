@@ -13,27 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Data Structure Declaration Files">
+      <UniqueIdentifier>{e90530e2-92ea-4916-b7b1-098c1e67ba09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data Structure Definition Files">
+      <UniqueIdentifier>{57086018-d233-40d7-adcd-40658f28915d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doublylinkedlist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ec_math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hashtable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="singlylinkedlist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="binarysearchtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ec_geometry.h">
@@ -42,30 +30,30 @@
     <ClInclude Include="ec_stringfuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="binarysearchtree.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="doublylinkedlist.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hashtable.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="singlylinkedlist.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="doublylinkedlist.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ec_math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="queue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hashtable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="singlylinkedlist.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="binarysearchtree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ec_geometry.cpp">
@@ -73,6 +61,24 @@
     </ClCompile>
     <ClCompile Include="ec_stringfuncs.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binarysearchtree.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doublylinkedlist.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hashtable.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="singlylinkedlist.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stack.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
