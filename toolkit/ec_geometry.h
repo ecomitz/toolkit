@@ -29,6 +29,7 @@ struct ec_geometry : private ec_math
 
 	//----------------------------------------------------------------------------------------------
 	// Triangle formulas
+	
 	// Calculates the area of a triangle given int base and int height. Returns an int.
 	static unsigned int triangleArea(unsigned int base, unsigned int height);
 	// Calculates the area of a triangle given int base and int height. Returns an int.
@@ -46,6 +47,8 @@ struct ec_geometry : private ec_math
 	//----------------------------------------------------------------------------------------------
 	// Right triangle formulas
 
+	// Calculates the hypotenuse of the right triangle given side A and side B.
+	static unsigned int pythagoreanTheorem(unsigned int sideA, unsigned int sideB);
 
 
 

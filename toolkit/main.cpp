@@ -5,20 +5,16 @@
 */
 //----------------------------------------------------------------------------------------------
 // Include and namespace usage section
-#include <iostream>
 #include "singlylinkedlist.h"
 #include "singlylinkedlist.cpp"
 #include "doublylinkedlist.h"
 #include "doublylinkedlist.cpp"
-#include "ec_stringfuncs.h"
+#include "stringTests.h"
 #include "ec_geometry.h"
 
 
-
-using namespace std;
 //----------------------------------------------------------------------------------------------
 // Test functions for main section declarations
-void stringTests();
 void singlylinkedlistTests();
 void mathTests();
 //----------------------------------------------------------------------------------------------
@@ -33,13 +29,14 @@ int main()
 		cout << "1: String function tests:" << endl;
 		cout << "2: Mathematical functions tests:" << endl;
 		cout << "3: Singly linked list tests:" << endl;
+		stringTests* p = stringTests::getInstance();
 		cin >> input;
 		switch (input)
 		{
 		case '0':
 			return 0;
 		case '1':
-			stringTests();
+			p->allTests();
 			break;
 		case '2': 
 			mathTests();
@@ -59,44 +56,31 @@ int main()
 }
 //----------------------------------------------------------------------------------------------
 // Test function definitions
-void stringTests()
-{
-	cout << "String Tests: \n---------------------------------------------------------------------------------------------- " << endl;
-	string noWords = "";
-	string noWordsButOneWhiteSpace = " ";
-	string oneWord = "KenOfTheRoad";
-	string twoWords = "KenOf TheRoad";
-	string threeWords = "Ken Of TheRoad";
-	string fourWords = "Ken Of The Road";
-	string oneWordPrecedingAndLeadingWhiteSpace = " KenOfTheRoad ";
-	string twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace = " KenOf TheRoad ";
-	cout << "charCount tests: " << endl;
-	cout << "String: " << noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::charCount(noWords) << endl;
-	cout << "String: " << oneWord << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(oneWord) << endl;
-	cout << "String: " << twoWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(twoWords) << endl;
-	cout << "String: " << threeWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(threeWords) << endl;
-	cout << "String: " << fourWords << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(fourWords) << endl;
-	cout << "String: " << oneWordPrecedingAndLeadingWhiteSpace << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(oneWordPrecedingAndLeadingWhiteSpace) << endl;
-	cout << "String: " << twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace) << endl;
-	cout << "String (one white space): " << noWordsButOneWhiteSpace << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::charCount(noWordsButOneWhiteSpace) << endl;
-
-	cout << "wordCount tests: " << endl;
-	cout << "String: " << noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(noWords) << endl;
-	cout << "String: " << oneWord << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::wordCount(oneWord) << endl;
-	cout << "String: " << twoWords << " | Expected: " << 2 << " Actual: " << ec_stringfuncs::wordCount(twoWords) << endl;
-	cout << "String: " << threeWords << " | Expected: " << 3 << " Actual: " << ec_stringfuncs::wordCount(threeWords) << endl;
-	cout << "String: " << fourWords << " | Expected: " << 4 << " Actual: " << ec_stringfuncs::wordCount(fourWords) << endl;
-	cout << "String: " << oneWordPrecedingAndLeadingWhiteSpace << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::wordCount(oneWordPrecedingAndLeadingWhiteSpace) << endl;
-	cout << "String: " << twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace << " | Expected: " << 2 << " Actual: " << ec_stringfuncs::wordCount(twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace) << endl;
-	cout << "String (one white space): " << noWordsButOneWhiteSpace << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(noWordsButOneWhiteSpace) << endl;
-	cout << "\n---------------------------------------------------------------------------------------------- " << endl;
-
-}
 
 
 void mathTests()
 {
-
+	cout << "Mathematical Functions Tests: \n---------------------------------------------------------------------------------------------- " << endl;
+	cout << "Prime Factorization Tests: " << endl;
+	cout << "Number: 5. Expected results: Is a prime number. Factors: 1, 5. Actual: " << endl;
+	int* primeList1  = new int();
+	int* primeList1Len = new int();
+	if (ec_math::listFactors(5, primeList1, primeList1Len) == true)
+	{
+		cout << "Is a prime number. ";
+	}
+	else
+	{
+		cout << "Is not a prime number. ";
+	}
+	cout << "Factors: ";
+	for (int i = 0; i < *primeList1Len; i++)
+	{
+		cout << *(primeList1 + i * 4) << " ";
+	}
+	cout << endl;
+	cout << "Logarithm Tests: " << endl;
+	cout << "";
 }
 void singlylinkedlistTests()
 {

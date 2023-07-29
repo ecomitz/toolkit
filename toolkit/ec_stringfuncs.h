@@ -4,7 +4,9 @@
 struct ec_stringfuncs
 {
 	// Not yet fully implemented, see definition for details. Counts the amount of "words" found in the string, i.e sections separated by a space. 
-	static unsigned int wordCount(std::string str);
+	static unsigned int wordCount(std::string str);	
+	// Counts the amount of a specific character in a string
+	static unsigned int countChar(std::string str, char target);
 	// Counts the amount of chars in a string, excluding whitespaces
 	static unsigned int charCount(std::string str);
 	// Counts the amount of chars in a string, not including a specific chracter as the second parameter

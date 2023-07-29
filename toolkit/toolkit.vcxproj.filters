@@ -19,14 +19,20 @@
     <Filter Include="Source Files\Data Structure Definition Files">
       <UniqueIdentifier>{57086018-d233-40d7-adcd-40658f28915d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Mathematical Functions Declaration Files">
+      <UniqueIdentifier>{7372b6bf-a6da-4fd3-9b66-17f020548954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mathematical Functions Definition Files">
+      <UniqueIdentifier>{e6133cf2-4056-49bd-8d91-1c729b359ae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test Files">
+      <UniqueIdentifier>{d0920f4e-3cb7-4bcd-9f99-1c3717ff6319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Test Files Declarations">
+      <UniqueIdentifier>{2f8e2d9d-6e54-4de5-a4b4-aa94c09e402e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ec_math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ec_geometry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ec_stringfuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,15 +54,21 @@
     <ClInclude Include="stack.h">
       <Filter>Header Files\Data Structure Declaration Files</Filter>
     </ClInclude>
+    <ClInclude Include="array_funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ec_math.h">
+      <Filter>Header Files\Mathematical Functions Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ec_geometry.h">
+      <Filter>Header Files\Mathematical Functions Declaration Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stringTests.h">
+      <Filter>Header Files\Test Files Declarations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ec_math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ec_geometry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ec_stringfuncs.cpp">
@@ -79,6 +91,18 @@
     </ClCompile>
     <ClCompile Include="stack.cpp">
       <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="array_funcs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ec_geometry.cpp">
+      <Filter>Source Files\Mathematical Functions Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ec_math.cpp">
+      <Filter>Source Files\Mathematical Functions Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stringTests.cpp">
+      <Filter>Source Files\Test Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
