@@ -146,10 +146,13 @@
     <ClInclude Include="ec_stringfuncs.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="hashtable.h" />
+    <ClInclude Include="queuetests.h" />
+    <ClInclude Include="singlylinkedliststests.h" />
     <ClInclude Include="stack.h" />
     <ClInclude Include="singlylinkedlist.h" />
     <ClInclude Include="binarysearchtree.h" />
-    <ClInclude Include="stringTests.h" />
+    <ClInclude Include="stacktests.h" />
+    <ClInclude Include="stringtests.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="array_funcs.cpp" />
@@ -159,11 +162,14 @@
     <ClCompile Include="ec_stringfuncs.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="hashtable.cpp" />
+    <ClCompile Include="queuetests.cpp" />
+    <ClCompile Include="singlylinkedliststests.cpp" />
     <ClCompile Include="stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="singlylinkedlist.cpp" />
     <ClCompile Include="binarysearchtree.cpp" />
-    <ClCompile Include="stringTests.cpp" />
+    <ClCompile Include="stacktests.cpp" />
+    <ClCompile Include="stringtests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

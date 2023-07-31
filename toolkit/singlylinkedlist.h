@@ -9,7 +9,7 @@ class singlylinkedlist
 	template <class T>
 	struct node
 	{
-		T datum; // placeholder
+		T datum; 
 		node *next;
 
 

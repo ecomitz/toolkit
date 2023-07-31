@@ -1,19 +1,19 @@
-#include "stringTests.h"
+#include "stringtests.h"
 
-stringTests* stringTests::singleton = 0;
+stringtests* stringtests::singleton = 0;
 
-stringTests* stringTests::getInstance()
+stringtests* stringtests::getInstance()
 {
 	if (singleton == NULL)
 	{
-		singleton = new stringTests();
+		singleton = new stringtests();
 	}
 	return singleton;
 }
 
-void stringTests::charCountTests(stringTests *p)
+void stringtests::charCountTests(stringtests *p)
 	{
-	//stringTests* p = getInstance();
+	
 		cout << "charCount tests: " << endl;
 		cout << "String: " << p->noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::charCount(p->noWords) << endl;
 		cout << "String: " << p->oneWord << " | Expected: " << 12 << " Actual: " << ec_stringfuncs::charCount(p->oneWord) << endl;
@@ -26,9 +26,9 @@ void stringTests::charCountTests(stringTests *p)
 		cout << "---------------------------------------------------------------------------------------------- " << endl;
 	}
 
-void stringTests::wordCountTests(stringTests *p)
+void stringtests::wordCountTests(stringtests *p)
 	{
-	//stringTests* p = getInstance();
+	
 		cout << "wordCount tests: " << endl;
 		cout << "String: " << p->noWords << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(p->noWords) << endl;
 		cout << "String: " << p->oneWord << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::wordCount(p->oneWord) << endl;
@@ -40,7 +40,7 @@ void stringTests::wordCountTests(stringTests *p)
 		cout << "String (one white space): " << p->noWordsButOneWhiteSpace << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::wordCount(p->noWordsButOneWhiteSpace) << endl;
 		cout << "---------------------------------------------------------------------------------------------- " << endl;
 	}
-void stringTests::countCharTests(stringTests* p)
+void stringtests::countCharTests(stringtests* p)
 {
 	cout << "countChar tests: " << endl;
 	cout << "wordCount tests: " << endl;
@@ -55,9 +55,9 @@ void stringTests::countCharTests(stringTests* p)
 	cout << "---------------------------------------------------------------------------------------------- " << endl;
 }
 
-void stringTests::allTests()
+void stringtests::allTests()
 	{
-	stringTests* p = getInstance();
+	stringtests* p = getInstance();
 		cout << "String Tests: \n---------------------------------------------------------------------------------------------- " << endl;
 		charCountTests(p);
 		wordCountTests(p);

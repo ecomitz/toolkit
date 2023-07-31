@@ -9,7 +9,7 @@
 #include "singlylinkedlist.cpp"
 #include "doublylinkedlist.h"
 #include "doublylinkedlist.cpp"
-#include "stringTests.h"
+#include "stringtests.h"
 #include "ec_geometry.h"
 
 
@@ -29,7 +29,7 @@ int main()
 		cout << "1: String function tests:" << endl;
 		cout << "2: Mathematical functions tests:" << endl;
 		cout << "3: Singly linked list tests:" << endl;
-		stringTests* p = stringTests::getInstance();
+		stringtests* p = stringtests::getInstance();
 		cin >> input;
 		switch (input)
 		{

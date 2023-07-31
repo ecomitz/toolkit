@@ -5,12 +5,12 @@
 #include <iostream>
 #include "ec_stringfuncs.h"
 using namespace std;
-class stringTests
+class stringtests
 {
 private:
 
-	static stringTests* singleton;
-	stringTests()
+	static stringtests* singleton;
+	stringtests()
 	{
 
 	}
@@ -27,12 +27,12 @@ public:
 	string twoWordsPrecedingAndLeadingWhiteSpacesWithExtraSpace = " KenOf TheRoad ";
 	string fourys = "yyyy";
 	string fourysThreets = "tyytyyt";
-	static stringTests* getInstance();
-	static void charCountTests(stringTests *p);
-	static void wordCountTests(stringTests *p);
-	static void countCharTests(stringTests *p);
+	static stringtests* getInstance();
+	static void charCountTests(stringtests *p);
+	static void wordCountTests(stringtests *p);
+	static void countCharTests(stringtests *p);
 	static void allTests();
-	~stringTests()
+	~stringtests()
 	{
 		delete singleton;
 	}

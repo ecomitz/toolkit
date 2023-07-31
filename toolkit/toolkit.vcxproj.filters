@@ -63,7 +63,16 @@
     <ClInclude Include="ec_geometry.h">
       <Filter>Header Files\Mathematical Functions Declaration Files</Filter>
     </ClInclude>
-    <ClInclude Include="stringTests.h">
+    <ClInclude Include="stringtests.h">
+      <Filter>Header Files\Test Files Declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="singlylinkedliststests.h">
+      <Filter>Header Files\Test Files Declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="queuetests.h">
+      <Filter>Header Files\Test Files Declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="stacktests.h">
       <Filter>Header Files\Test Files Declarations</Filter>
     </ClInclude>
   </ItemGroup>
@@ -101,8 +110,17 @@
     <ClCompile Include="ec_math.cpp">
       <Filter>Source Files\Mathematical Functions Definition Files</Filter>
     </ClCompile>
-    <ClCompile Include="stringTests.cpp">
+    <ClCompile Include="stringtests.cpp">
       <Filter>Source Files\Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="singlylinkedliststests.cpp">
+      <Filter>Source Files\Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="queuetests.cpp">
+      <Filter>Source Files\Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stacktests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
