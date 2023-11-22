@@ -7,10 +7,10 @@ doublylinkedlist<T>::doublylinkedlist()
 	tail = 0;
 }
 template <class T>
-doublylinkedlist<T>::doublylinkedlist(T datum)
+doublylinkedlist<T>::doublylinkedlist(T data)
 {
 	head = new node;
-	head->datum = datum;
+	head->datum = data;
 	head->next = 0;
 	head->prev = 0;
 	tail = head;
@@ -18,7 +18,7 @@ doublylinkedlist<T>::doublylinkedlist(T datum)
 	
 }
 template <class T>
-void doublylinkedlist<T>::add(T datum)
+void doublylinkedlist<T>::add(T data)
 {
 	return; // placeholder
 }

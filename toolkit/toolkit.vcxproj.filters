@@ -36,7 +36,7 @@
     <ClInclude Include="ec_stringfuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="binarysearchtree.h">
+    <ClInclude Include="tree.h">
       <Filter>Header Files\Data Structure Declaration Files</Filter>
     </ClInclude>
     <ClInclude Include="doublylinkedlist.h">
@@ -75,6 +75,9 @@
     <ClInclude Include="stacktests.h">
       <Filter>Header Files\Test Files Declarations</Filter>
     </ClInclude>
+    <ClInclude Include="binarytree.h">
+      <Filter>Header Files\Data Structure Declaration Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,7 +86,7 @@
     <ClCompile Include="ec_stringfuncs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binarysearchtree.cpp">
+    <ClCompile Include="tree.cpp">
       <Filter>Source Files\Data Structure Definition Files</Filter>
     </ClCompile>
     <ClCompile Include="doublylinkedlist.cpp">
@@ -121,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="stacktests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binarytree.cpp">
+      <Filter>Source Files\Data Structure Definition Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

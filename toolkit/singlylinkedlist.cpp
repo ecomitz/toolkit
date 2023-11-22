@@ -14,10 +14,10 @@ singlylinkedlist<T>::singlylinkedlist()
 
 	}
 template <class T>
-singlylinkedlist<T>::singlylinkedlist(T datum)
+singlylinkedlist<T>::singlylinkedlist(T data)
 {
 	head = new node<T>;
-	head->datum = datum;
+	head->data = data;
 	tail = head;
 	head->next = 0;
 	size = 1;
@@ -29,7 +29,7 @@ singlylinkedlist<T>::singlylinkedlist(node<T> *listToCopy)
 	node<T>* traverser = listToCopy;
 	node<T>* traverserForNewList;
 	head = new node<T>; // The first node
-	head->datum = listToCopy->datum;
+	head->data = listToCopy->data;
 	head->next = 0;
 	tail = head; // We'll assume for now that the tail is also the head. 
 	size = 1;
@@ -37,7 +37,7 @@ singlylinkedlist<T>::singlylinkedlist(node<T> *listToCopy)
 	if (listToCopy->next != 0) //  The second node, if there is one.
 	{
 		node<T>* newOne = new node<T>;
-		newOne->datum = listToCopy->next->datum;
+		newOne->data = listToCopy->next->data;
 		newOne->next = 0;
 		head->next = newOne;
 		traverserForNewList = newOne;
@@ -46,7 +46,7 @@ singlylinkedlist<T>::singlylinkedlist(node<T> *listToCopy)
 		if (listToCopy->next->next == 0) // AKA it's a 2 node list and the second one is thus the tail.
 		{
 			tail = newOne;
-			tail->datum = listToCopy->next->datum;
+			tail->data = listToCopy->next->data;
 			tail->next = 0;
 			
 		}
@@ -54,7 +54,7 @@ singlylinkedlist<T>::singlylinkedlist(node<T> *listToCopy)
 	while (traverser != 0) // The rest of the nodes for a list over 2 nodes.
 	{
 		node<T>* newOne = new node<T>;
-		newOne->datum = traverser->datum;
+		newOne->data = traverser->data;
 		newOne->next = 0;
 		traverserForNewList->next = newOne;
 		traverserForNewList = newOne;
@@ -92,11 +92,11 @@ void singlylinkedlist<T>::traverse()
 	{
 		if (traverser->next != 0)
 		{
-			std::cout << traverser->datum << ", ";
+			std::cout << traverser->data << ", ";
 		}
 		else
 		{
-			std::cout << traverser->datum;
+			std::cout << traverser->data;
 		}
 		traverser = traverser->next;
 		
@@ -117,12 +117,12 @@ T singlylinkedlist<T>::getAtIndex(unsigned int index)
 	{
 		if (i == index)
 		{
-			return traverser->datum;
+			return traverser->data;
 		}
 		traverser = traverser->next;
 
 	}
-	return head->datum; // Default case: 1 node, thus it is the head.
+	return head->data; // Default case: 1 node, thus it is the head.
 }
 template <class T>
 void singlylinkedlist<T>::reverse()
@@ -143,7 +143,7 @@ void singlylinkedlist<T>::reverse()
 			
 		}
 		
-		reversedForm->add(traverser->datum);
+		reversedForm->add(traverser->data);
 		trailer->next = 0;
 		delete traverser;
 	}
@@ -165,7 +165,7 @@ singlylinkedlist<T>* singlylinkedlist<T>::reverse(singlylinkedlist<T> listToReve
 			trailer = traverser;
 			traverser = traverser->next;
 		}
-		reversedFormPointer->add(traverser->datum);
+		reversedFormPointer->add(traverser->data);
 		trailer->next = 0;
 		delete traverser;
 	}
@@ -185,7 +185,7 @@ unsigned int singlylinkedlist<T>::getSize()
 	return this->size;
 }
 template <class T>
-bool singlylinkedlist<T>::find(T datum, unsigned int &index)
+bool singlylinkedlist<T>::find(T data, unsigned int &index)
 {
 	 
 	unsigned int i = 0;
@@ -196,7 +196,7 @@ bool singlylinkedlist<T>::find(T datum, unsigned int &index)
 	while (traverser != 0)
 	{
 
-		if (traverser->datum == datum)
+		if (traverser->data == data)
 		{
 
 			index = i;
@@ -235,13 +235,13 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 
 
 	template <class T>
-	void singlylinkedlist<T>::add(T datum)
+	void singlylinkedlist<T>::add(T data)
 	{
 		// Scenario: No nodes exist yet
 		if (head == 0)
 		{
 			head = new node<T>;
-			head->datum = datum;
+			head->data = data;
 			tail = head;
 			head->next = 0;
 			tail->next = 0;
@@ -253,7 +253,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 		{
 			tail = new node<T>;
 			head->next = tail;
-			tail->datum = datum;
+			tail->data = data;
 			tail->next = 0;
 			size = 2;
 			return;
@@ -261,7 +261,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 		
 		 // Scenario: There is already at least 2 nodes present. 
 		node<T>* newOne = new node<T>;
-		newOne->datum = datum;
+		newOne->data = data;
 		tail->next = newOne;
 		tail = newOne;
 		tail->next = 0;
@@ -269,7 +269,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 	
 	}
 	template <class T>
-	void singlylinkedlist<T>::addByIndex(T datum, unsigned int index)
+	void singlylinkedlist<T>::addByIndex(T data, unsigned int index)
 	{
 
 		node<T>* traverser = head;
@@ -278,7 +278,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 		if (index == 0) // aka it shall be the head
 		{
 			node<T>* newOne = new node<T>;
-			newOne->datum = datum;
+			newOne->data = data;
 			newOne->next = head;
 			head = newOne;
 			size++;
@@ -287,7 +287,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 		else if (index == size) // aka it shall be the new tail
 		{
 			node<T>* newOne = new node<T>;
-			newOne->datum = datum;
+			newOne->data = data;
 			newOne->next = 0;
 			tail->next = newOne;
 			tail = newOne;
@@ -300,7 +300,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 			if (i == index)
 			{
 				node<T>* newOne = new node<T>;
-				newOne->datum = datum;
+				newOne->data = data;
 				newOne->next = traverser;
 				trailer->next = newOne;
 				size++;
@@ -357,7 +357,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 
 		node<T>* traverser = head;
 		node<T>* trailer = 0;
-		if (traverser->datum == data && traverser == head) // i.e if head is a case
+		if (traverser->data == data && traverser == head) // i.e if head is a case
 		{
 			traverser = traverser->next;
 			delete head;
@@ -369,7 +369,7 @@ void singlylinkedlist<T>::traverseWithMemLocs()
 		/*
 		while (traverser != 0)
 		{
-			if (traverser->datum == data)
+			if (traverser->data == data)
 			{
 				if (trailer != 0)
 				{

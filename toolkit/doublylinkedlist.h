@@ -29,7 +29,7 @@ public:
 	// Deconstructor
    ~doublylinkedlist();
    // Adds datum to the back, i.e a new tail.
-	void add(T datum);	
+	void add(T data);	
 	// Removes the head node and makes the next node the head.
 	void removeHead();
 	// Adds datum to a specific spot. If an invalid index or one that exceeds the size is given, do nothing. If something already exists there, it will rewrite it.

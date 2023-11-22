@@ -4,6 +4,13 @@
 template <class T>
 class hashtable
 {
+private:
+	
+
+
+public:
+
+
 
 };
 #endif

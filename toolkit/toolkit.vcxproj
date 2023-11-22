@@ -27,26 +27,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="array_funcs.h" />
+    <ClInclude Include="binarytree.h" />
     <ClInclude Include="doublylinkedlist.h" />
     <ClInclude Include="ec_geometry.h" />
     <ClInclude Include="ec_math.h" />
@@ -150,12 +151,13 @@
     <ClInclude Include="singlylinkedliststests.h" />
     <ClInclude Include="stack.h" />
     <ClInclude Include="singlylinkedlist.h" />
-    <ClInclude Include="binarysearchtree.h" />
+    <ClInclude Include="tree.h" />
     <ClInclude Include="stacktests.h" />
     <ClInclude Include="stringtests.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="array_funcs.cpp" />
+    <ClCompile Include="binarytree.cpp" />
     <ClCompile Include="doublylinkedlist.cpp" />
     <ClCompile Include="ec_geometry.cpp" />
     <ClCompile Include="ec_math.cpp" />
@@ -167,7 +169,7 @@
     <ClCompile Include="stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="singlylinkedlist.cpp" />
-    <ClCompile Include="binarysearchtree.cpp" />
+    <ClCompile Include="tree.cpp" />
     <ClCompile Include="stacktests.cpp" />
     <ClCompile Include="stringtests.cpp" />
   </ItemGroup>
