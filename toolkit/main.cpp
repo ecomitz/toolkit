@@ -36,7 +36,7 @@ int main()
 		case '0':
 			return 0;
 		case '1':
-			p->allTests();
+			p->testSelector();
 			break;
 		case '2': 
 			ec_mathtests::testSelector();

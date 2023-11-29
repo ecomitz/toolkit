@@ -32,6 +32,7 @@ public:
 	static void wordCountTests(stringtests *p);
 	static void countCharTests(stringtests *p);
 	static void allTests();
+	static void testSelector();
 	~stringtests()
 	{
 		delete singleton;

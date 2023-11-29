@@ -43,7 +43,6 @@ void stringtests::wordCountTests(stringtests *p)
 void stringtests::countCharTests(stringtests* p)
 {
 	cout << "countChar tests: " << endl;
-	cout << "wordCount tests: " << endl;
 	cout << "String: " << p->noWords << " | Target: z" << " | Expected: " << 0 << " Actual: " << ec_stringfuncs::countChar(p->noWords, 'z') << endl;
 	cout << "String: " << p->oneWord << " | Target: n" << " | Expected: " << 1 << " Actual: " << ec_stringfuncs::countChar(p->oneWord, 'n') << endl;
 	cout << "String: " << p->twoWords << " | Target: e" << " | Expected: " << 2 << " Actual: " << ec_stringfuncs::countChar(p->twoWords, 'e') << endl;
@@ -56,11 +55,49 @@ void stringtests::countCharTests(stringtests* p)
 }
 
 void stringtests::allTests()
-	{
+{
 	stringtests* p = getInstance();
-		cout << "String Tests: \n---------------------------------------------------------------------------------------------- " << endl;
-		charCountTests(p);
-		wordCountTests(p);
-		countCharTests(p);
-		cout << "\n---------------------------------------------------------------------------------------------- " << endl;
+	charCountTests(p);
+	wordCountTests(p);
+	countCharTests(p);
+	cout << "\n---------------------------------------------------------------------------------------------- " << endl;
+}
+
+void stringtests::testSelector()
+{
+	stringtests* p = getInstance();
+	cout << "String Tests: \n---------------------------------------------------------------------------------------------- " << endl;
+	char input = 0;
+	while (input != '0')
+	{
+		std::cout << "Select a test to run: " << std::endl;
+		std::cout << "0: End string testing:" << std::endl;
+		std::cout << "1: Char Counting Tests:" << std::endl;
+		std::cout << "2: Word Counting Tests:" << std::endl;
+		std::cout << "3: Specific Char Counting Tests:" << std::endl;
+		std::cout << "4: All Tests:" << std::endl;
+		std::cin >> input;
+		switch (input) 
+		{
+		case '0':
+			return;
+		case '1':
+			charCountTests(p);
+			break;
+		case '2':
+			wordCountTests(p);
+			break;
+		case '3':
+			countCharTests(p);
+			break;
+		case '4':
+			allTests();
+			break;
+		default:
+			cout << "Invalid option" << endl;
+		
+		
+		
+		}
 	}
+}
