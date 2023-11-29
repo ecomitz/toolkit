@@ -12,7 +12,7 @@ unsigned int ec_stringfuncs::wordCount(std::string str)
 		return 0;
 	}
 
-	// Step 2: Assume a white space count of 1; i.e it all one "word".
+	// Step 2: Assume a white space count of 1; i.e if all one "word".
 
 	unsigned int whiteSpaceCount = 1;
 	

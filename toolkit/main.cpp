@@ -1,6 +1,6 @@
 /* This program serves as a test chamber for various functions, data structures and code sections that may prove useful in any given situation
 * Author: Eric Comitz
-* In this section (Main.cpp) test cases are written and executed
+* In this section (Main.cpp) test cases are executed
 *
 */
 //----------------------------------------------------------------------------------------------
@@ -11,17 +11,18 @@
 #include "doublylinkedlist.cpp"
 #include "stringtests.h"
 #include "ec_geometry.h"
+#include "ec_mathtests.h"
 
 
 //----------------------------------------------------------------------------------------------
 // Test functions for main section declarations
 void singlylinkedlistTests();
-void mathTests();
 //----------------------------------------------------------------------------------------------
 // Main section
 int main()
 {
 	char input = 0;
+	stringtests* p = stringtests::getInstance();
 	while (input != '0')
 	{
 		cout << "Select a test to run: " << endl;
@@ -29,7 +30,6 @@ int main()
 		cout << "1: String function tests:" << endl;
 		cout << "2: Mathematical functions tests:" << endl;
 		cout << "3: Singly linked list tests:" << endl;
-		stringtests* p = stringtests::getInstance();
 		cin >> input;
 		switch (input)
 		{
@@ -39,7 +39,7 @@ int main()
 			p->allTests();
 			break;
 		case '2': 
-			mathTests();
+			ec_mathtests::testSelector();
 			break;
 		case '3':
 			singlylinkedlistTests();
@@ -56,32 +56,6 @@ int main()
 }
 //----------------------------------------------------------------------------------------------
 // Test function definitions
-
-
-void mathTests()
-{
-	cout << "Mathematical Functions Tests: \n---------------------------------------------------------------------------------------------- " << endl;
-	cout << "Prime Factorization Tests: " << endl;
-	cout << "Number: 5. Expected results: Is a prime number. Factors: 1, 5. Actual: " << endl;
-	int* primeList1  = new int();
-	int* primeList1Len = new int();
-	if (ec_math::listFactors(5, primeList1, primeList1Len) == true)
-	{
-		cout << "Is a prime number. ";
-	}
-	else
-	{
-		cout << "Is not a prime number. ";
-	}
-	cout << "Factors: ";
-	for (int i = 0; i < *primeList1Len; i++)
-	{
-		cout << *(primeList1 + i * 4) << " ";
-	}
-	cout << endl;
-	cout << "Logarithm Tests: " << endl;
-	cout << "";
-}
 void singlylinkedlistTests()
 {
 	singlylinkedlist<int>* tester = new singlylinkedlist<int>();

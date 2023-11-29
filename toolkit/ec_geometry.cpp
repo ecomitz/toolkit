@@ -7,34 +7,34 @@
 
 unsigned int ec_geometry::rectangleArea(unsigned int len, unsigned int width)
 {
-	return 0; // placeholder
+	return width*len; 
 }
 
 double ec_geometry::rectangleArea(double len, double width)
 {
-	return 0.0; // plaveholder
+	return width*len; 
 }
 
 unsigned int ec_geometry::rectanglePerimeter(unsigned int len, unsigned int width)
 {
-	return 0; // placeholder
+	return 2*(len+width); 
 }
 
 double ec_geometry::rectanglePerimeter(double len, double width)
 {
-	return 0.0; // placeholder
+	return 2*(len+width); 
 }
 //----------------------------------------------------------------------------------------------
 // Circle formulas
 
 unsigned int ec_geometry::circleCircumference(unsigned int radius)
 {
-	return 0; // placeholder
+	return 2*PI*radius; 
 }
 
 double ec_geometry::circleCircumference(double radius)
 {
-	return 0.0; // placeholder
+	return 2*PI*radius; 
 }
 
 unsigned int ec_geometry::circleArea(unsigned int radius)

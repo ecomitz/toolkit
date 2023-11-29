@@ -78,6 +78,9 @@
     <ClInclude Include="binarytree.h">
       <Filter>Header Files\Data Structure Declaration Files</Filter>
     </ClInclude>
+    <ClInclude Include="ec_mathtests.h">
+      <Filter>Header Files\Test Files Declarations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,11 +125,14 @@
     <ClCompile Include="queuetests.cpp">
       <Filter>Source Files\Test Files</Filter>
     </ClCompile>
-    <ClCompile Include="stacktests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="binarytree.cpp">
       <Filter>Source Files\Data Structure Definition Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ec_mathtests.cpp">
+      <Filter>Source Files\Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stacktests.cpp">
+      <Filter>Source Files\Test Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

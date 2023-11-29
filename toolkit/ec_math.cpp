@@ -31,16 +31,29 @@ bool ec_math::listFactors(int input, int *ret, int *len)
 }
 
 double ec_math::sqrt(double input)
-	{
+{
 
 	return 0.0; // placeholder
 	
-	}
+}
 
-	double ec_math::exponent(double base, double power)
+double ec_math::exponent(double base, int power)
+{
+	if (power == 0)
 	{
-		return 0.0; // placeholder
+		return 1.0;
 	}
+	else if (power == 1)
+	{
+		return base;
+	}
+	double ret = base;
+	for (int i = 0; i < power; i++)
+	{
+		ret = ret * base;
+	}
+		return ret; 
+}
 
 	double ec_math::logarithm(double base, double exp)
 	{

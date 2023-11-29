@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -144,6 +144,7 @@
     <ClInclude Include="doublylinkedlist.h" />
     <ClInclude Include="ec_geometry.h" />
     <ClInclude Include="ec_math.h" />
+    <ClInclude Include="ec_mathtests.h" />
     <ClInclude Include="ec_stringfuncs.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="hashtable.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="doublylinkedlist.cpp" />
     <ClCompile Include="ec_geometry.cpp" />
     <ClCompile Include="ec_math.cpp" />
+    <ClCompile Include="ec_mathtests.cpp" />
     <ClCompile Include="ec_stringfuncs.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="hashtable.cpp" />
